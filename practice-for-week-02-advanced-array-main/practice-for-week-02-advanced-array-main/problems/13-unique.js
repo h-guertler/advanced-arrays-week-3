@@ -16,6 +16,15 @@ console.log(unique(['a', 'b', 'c', 'b'])); // ['a', 'b', 'c']
 
 let unique = function(array) {
     // Your code here
+    // make an empty array to hold solution
+    let solArr = [];
+    // iterate through the array using for each
+    array.forEach((element) => {
+      // if solArr doesn't contain the element, push it to solArr
+      if (!solArr.includes(element)) solArr.push(element);
+    })
+    // return the array w the solution
+    return solArr;
 };
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
@@ -24,4 +33,4 @@ try {
     module.exports = unique;
 } catch (e) {
     module.exports = null;
-}
+}
