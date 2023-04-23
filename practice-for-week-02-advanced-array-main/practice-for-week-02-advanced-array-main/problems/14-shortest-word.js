@@ -16,6 +16,29 @@ console.log(shortestWord('do what you enjoy'));         // 'do'
 
 let shortestWord = function(sentence) {
   // Your code here
+  // set a variable to represent the length of the shortest word so far, infinity
+  let shortWordLength = Infinity;
+
+  // set a variable to represent the shortest word so far
+  let shortestWord = "";
+
+  // split sentence into an array
+  let wordArr = sentence.split(" ");
+
+  // use reduce to iterate through the array
+  wordArr.reduce((acc, word) => {
+  // if the current word's length is less than or equal to the shortest word so far
+    if (word.length <= shortWordLength) {
+      // the length of the shortest word becomes the length of the current word
+      shortWordLength = word.length;
+      // the shortest word so far becomes the current word
+      shortWord = word;
+    }
+  // return the shortest word
+    return shortWord;
+  }, Infinity);
+  // outside reduce, return the shortest word
+  return shortWord;
 };
 
 // Your code here
@@ -26,4 +49,4 @@ try {
   module.exports = shortestWord;
 } catch (e) {
   module.exports = null;
-}
+}
