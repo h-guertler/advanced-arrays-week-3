@@ -11,11 +11,13 @@ Examples:
 
 console.log(maxWithReduce([4, 6, 3, 5, 42, 4])); // 42
 console.log(maxWithReduce([-2, -3, -7, 3])); // 3
-
 */
 
 let maxWithReduce = function(nums) {
     // Your code here
+    // set acc to -Inf at end
+    // if the number is greater than the acc, acc = number
+    return nums.reduce((acc, number) => { if (number > acc) acc = number; return acc;}, -Infinity);
 };
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/

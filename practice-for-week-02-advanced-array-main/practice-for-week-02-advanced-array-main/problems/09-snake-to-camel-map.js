@@ -17,6 +17,22 @@ console.log(snakeToCamel('APp_ACADEMY_iS_cOol')); // 'AppAcademyIsCool'
 
 function snakeToCamel(str) {
     // Your code here
+    // make the str toLowerCase, into an arr
+    let wordArr = str.toLowerCase().split("_");
+
+    // map it
+    // cap the 1st letter
+    // slice the rest off
+    // return them together
+    let mapped = wordArr.map(word => {
+      let firstChar = word[0].toUpperCase();
+      let restOfWord = word.slice(1, word.length);
+      return firstChar + restOfWord;
+    });
+
+    // join this back into a str
+    // return the str
+    return mapped.join("");
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
@@ -25,4 +41,4 @@ try {
     module.exports = snakeToCamel;
 } catch (e) {
     module.exports = null;
-}
+}
