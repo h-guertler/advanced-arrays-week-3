@@ -29,12 +29,46 @@ console.log(repeatingTranslate("her family flew to France"));   // "herer family
 */
 
 let repeatingTranslate = function(sentence) {
-    // Your code here
+
+    // make a string to hold the solution
+    let translatedStr = "";
+    // make a const including all vowels
+    let vowels = "AEIOUaeiou";
+    // make an arr to hold translated words
+    let translatedWords = [];
+    // .split sentence into an array
+    let splitSent = sentence.split(" ");
+
+    // using forEach, iterate through the array according to the following else ifs
+    splitSent.forEach(word => {
+        // if a word is less than 3 characters, add it to the solution arr
+        if (word.length < 3) translatedWords.push(word);
+
+        // else if the last index in the word is a vowel, add the word plus the word to the solution arr
+        else if (vowels.includes(word[word.length - 1])) translatedWords.push(word + word);
+
+        // else, perform translateWord on it and add it to the solution arr
+        else translatedWords.push(translateWord(word));
+    });
+    // .join and return the array of translated words
+    return translatedWords.join(" ");
 };
 
 
 let translateWord = function(word) {
-    // Your code here
+    // make const containing all vowels
+    const vowels = "AEIOUaeiou";
+
+    // iterate backwards through the word using a for loop until a vowel is found
+    for (let i = word.length - 1; i >= 0; i--) {
+        // when a vowel is found
+        if (vowels.includes(word[i])) {
+            // slice the word from the index of the vowel to the end of the world
+            let newEnd = word.slice(i);
+            // return the word plus this slice
+            return word + newEnd;
+        }
+    }
 };
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
@@ -43,4 +77,4 @@ try {
     module.exports = repeatingTranslate;
 } catch (e) {
     module.exports = null;
-}
+}
