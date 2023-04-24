@@ -20,11 +20,33 @@ console.log(choosePrimes([5, 6, 4, 11, 2017])); // [ 5, 11, 2017 ]
 
 let isPrime = function(num) {
     // Your code here
+    // if a number is less than or equal to 2, return false
+    if (num <= 2) return false;
+    // iterate through the positive numbers >= 2 and less than num using a for loop
+    for (let i = 2; i < num; i++) {
+       // if num can be evenly divided by the number, return false
+       if (num % i === 0) return false;
+    }
+    // outside the loop, return true
+    return true;
 }
 
 let choosePrimes = function(nums) {
     // Your code here
-}
+    // make an empty array to hold the prime numbers
+    let primes = [];
+    // use forEach to iterate through the array
+    // if a given number is prime, push it to the array of primes
+
+
+    nums.forEach((num) => {
+      if (isPrime(num) === true) primes.push(num);
+    });
+
+
+    // return the array of primes
+    return primes;
+};
 
 // alternative solution using Array.filter
 // let choosePrimes = function(nums) {
@@ -37,4 +59,4 @@ try {
     module.exports = choosePrimes;
 } catch (e) {
     module.exports = null;
-}
+}
