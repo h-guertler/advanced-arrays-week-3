@@ -25,8 +25,21 @@ console.log(twoDimensionalProduct(arr2)); // 88
 
 */
 
+
+
 let twoDimensionalProduct = function(arr) {
     // Your code here
+    // initialize product w a val of 1
+    let product = 1;
+
+    // FOR EACH loop though contents of arr
+    arr.forEach(function(subArr) {
+      // FOR EACH element in the subarr, product *= element
+      subArr.forEach(function(num) {
+        product *= num;
+      });
+    });
+  return product;
 };
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
